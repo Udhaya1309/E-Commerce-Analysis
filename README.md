@@ -50,9 +50,6 @@ We also implemented realtime AI agent which analyzes the data and gives the pred
 
 
 
-
-(images/Screenshot(14).png)
-
 # E-commerce Consumer Behavior Analysis
 
 A data analysis project exploring **e-commerce consumer behavior** using a real-world dataset of customer demographics, purchase patterns, channels, and satisfaction metrics. The repo also includes an **AI Marketing Agent** that uses ML to predict purchase intent and generate personalized marketing emails.
@@ -251,6 +248,7 @@ Compares average purchase amount for loyalty program members vs non-members. Sup
 ## License
 
 This project is for educational and analytical use. Ensure you have the right to use and share the dataset according to its source terms.
+
 
 
 
