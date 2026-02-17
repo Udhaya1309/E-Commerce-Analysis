@@ -171,27 +171,6 @@ Compares average purchase amount for loyalty program members vs non-members. Sup
 
 ---
 
-## Pushing to GitHub
-
-1. **Initialize git** (if not already):
-   ```bash
-   git init
-   ```
-
-2. **Add and commit**:
-   ```bash
-   git add .
-   git commit -m "Initial commit: E-commerce consumer behavior analysis with README and images"
-   ```
-
-3. **Create a new repository** on GitHub, then add the remote and push:
-   ```bash
-   git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
-   git branch -M main
-   git push -u origin main
-   ```
-
-Replace `YOUR_USERNAME` and `YOUR_REPO_NAME` with your GitHub username and repository name.
 
 ---
 
