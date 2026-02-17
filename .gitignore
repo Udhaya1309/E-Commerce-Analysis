@@ -1,12 +1,17 @@
+# Environment and secrets
+.env
+.env.local
+*.env
+
 # Python
 __pycache__/
 *.py[cod]
 *$py.class
-*.so
 .Python
+*.so
+.venv/
 venv/
 env/
-.venv/
 
 # IDE
 .idea/
@@ -17,9 +22,3 @@ env/
 # OS
 .DS_Store
 Thumbs.db
-
-# Jupyter
-.ipynb_checkpoints/
-
-# Optional: uncomment if you want to exclude large outputs
-# *.csv

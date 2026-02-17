@@ -1,6 +1,6 @@
 # E-commerce Consumer Behavior Analysis
 
-A data analysis project exploring **e-commerce consumer behavior** using a real-world dataset of customer demographics, purchase patterns, channels, and satisfaction metrics. The goal is to understand how customers shop, what drives spending, and how satisfaction and loyalty relate to behavior.
+A data analysis project exploring **e-commerce consumer behavior** using a real-world dataset of customer demographics, purchase patterns, channels, and satisfaction metrics. The repo also includes an **AI Marketing Agent** that uses ML to predict purchase intent and generate personalized marketing emails.
 
 ---
 
@@ -9,16 +9,17 @@ A data analysis project exploring **e-commerce consumer behavior** using a real-
 This repository contains:
 
 - **Dataset**: `Ecommerce_Consumer_Behavior_Analysis_Data.csv` — consumer behavior records with demographics, purchase details, and satisfaction indicators.
-- **Analysis script**: `run_analysis.py` — generates all visualizations below (requires Python 3.8+, pandas, matplotlib, seaborn).
+- **Analysis script**: `run_analysis.py` — generates visualizations (requires Python 3.8+, pandas, matplotlib, seaborn).
+- **AI Marketing Agent**: ML-driven agent that predicts customer segment, chooses strategy from model confidence, and generates personalized emails (see below).
 - **Analysis images**: Stored in the `images/` folder and referenced in this README.
 
 ### Dataset summary
 
 | Aspect | Description |
-|--------|-------------|
+|--------|--------------|
 | **Rows** | ~1,000 customer purchase records |
 | **Columns** | 28 (demographics, purchase, channel, satisfaction, etc.) |
-| **Use case** | Exploratory analysis, segmentation, and reporting |
+| **Use case** | Exploratory analysis, segmentation, reporting, and ML marketing agent |
 
 ### Main variables
 
@@ -30,6 +31,59 @@ This repository contains:
 
 ---
 
+## AI Marketing Agent
+
+An intelligent agent that analyzes customer data, predicts **purchase intent** (Need-based, Wants-based, Impulsive, Planned) with a **GradientBoostingClassifier**, and generates personalized marketing emails. Strategy (Upsell / Nurture / Re-engagement) is decided from **prediction probability**, not rule-based segments.
+
+### Agent features
+
+- **Data processing**: Load CSV, clean `Purchase_Amount`, handle missing values, encode categoricals, scale numerics  
+- **ML model**: Predicts `Purchase_Intent`; train/test split and accuracy reported  
+- **MarketingAIAgent** methods: `preprocess_data()`, `train_model()`, `predict_customer_segment()`, `generate_email()`, `run_agent()`  
+- **Decision logic**: High probability → Upsell; Medium → Nurture; Low → Re-engagement  
+- **Email generation**: OpenAI API (or context-aware fallback if no API key)  
+- **Streamlit UI**: Manual input or sample customers (Loyal / At-risk / New), then run agent and view prediction, strategy, and email  
+
+### AI Marketing Agent – Streamlit UI
+
+![AI Marketing Agent UI](images/ai_marketing_agent_ui.png)
+
+*Manual input form and output: predicted intent, confidence, strategy, and generated email.*
+
+### How to run the AI Marketing Agent
+
+1. **Install dependencies**:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+2. **Optional – OpenAI for email generation**:  
+   Create a `.env` file (copy from `.env.example`) and set `OPENAI_API_KEY=your_key_here`. Without it, the agent uses an intelligent fallback.
+
+3. **CLI demo (3 sample customers)**:
+   ```bash
+   python main.py
+   ```
+   Prints for each sample: **Prediction**, **Strategy**, **Generated email**.
+
+4. **Streamlit UI**:
+   ```bash
+   python -m streamlit run app.py
+   ```
+   Use **Manual** to enter customer details, or **Sample customers** to pick Loyal / At-risk / New, then click **Run AI Agent**.
+
+### Agent project layout
+
+| File | Purpose |
+|------|--------|
+| `config.py` | Paths, OpenAI config, probability thresholds |
+| `marketing_agent.py` | `MarketingAIAgent` class and helpers |
+| `main.py` | CLI demo |
+| `app.py` | Streamlit UI |
+| `Ecommerce_Consumer_Behavior_Analysis_Data.csv` | Input dataset |
+
+---
+
 ## How to run the analysis
 
 1. **Clone the repo** (or download the project folder).
@@ -37,7 +91,7 @@ This repository contains:
    ```bash
    pip install -r requirements.txt
    ```
-3. **Generate all analysis images**:
+3. **Generate all analysis images** (if `run_analysis.py` is present):
    ```bash
    python run_analysis.py
    ```
@@ -153,8 +207,14 @@ Compares average purchase amount for loyalty program members vs non-members. Sup
 ├── requirements.txt
 ├── run_analysis.py
 ├── Ecommerce_Consumer_Behavior_Analysis_Data.csv
+├── .env.example
 ├── .gitignore
+├── config.py
+├── marketing_agent.py
+├── main.py
+├── app.py
 └── images/
+    ├── ai_marketing_agent_ui.png
     ├── 01_purchase_amount_distribution.png
     ├── 02_purchase_categories.png
     ├── 03_purchase_channel.png
@@ -168,9 +228,6 @@ Compares average purchase amount for loyalty program members vs non-members. Sup
     ├── 11_correlation_heatmap.png
     └── 12_loyalty_purchase.png
 ```
-
----
-
 
 ---
 
