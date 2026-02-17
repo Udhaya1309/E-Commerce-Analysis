@@ -44,60 +44,12 @@ An intelligent agent that analyzes customer data, predicts **purchase intent** (
 - **Email generation**: OpenAI API (or context-aware fallback if no API key)  
 - **Streamlit UI**: Manual input or sample customers (Loyal / At-risk / New), then run agent and view prediction, strategy, and email  
 
-### AI Marketing Agent – Streamlit UI
+We also implemented realtime AI agent which analyzes the data and gives the predictions accordingly 
+(images/Screenshot(15).png)
 
-![AI Marketing Agent UI](images/ai_marketing_agent_ui.png)
 
-*Manual input form and output: predicted intent, confidence, strategy, and generated email.*
+(images/Screenshot(14).png)
 
-### How to run the AI Marketing Agent
-
-1. **Install dependencies**:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-2. **Optional – OpenAI for email generation**:  
-   Create a `.env` file (copy from `.env.example`) and set `OPENAI_API_KEY=your_key_here`. Without it, the agent uses an intelligent fallback.
-
-3. **CLI demo (3 sample customers)**:
-   ```bash
-   python main.py
-   ```
-   Prints for each sample: **Prediction**, **Strategy**, **Generated email**.
-
-4. **Streamlit UI**:
-   ```bash
-   python -m streamlit run app.py
-   ```
-   Use **Manual** to enter customer details, or **Sample customers** to pick Loyal / At-risk / New, then click **Run AI Agent**.
-
-### Agent project layout
-
-| File | Purpose |
-|------|--------|
-| `config.py` | Paths, OpenAI config, probability thresholds |
-| `marketing_agent.py` | `MarketingAIAgent` class and helpers |
-| `main.py` | CLI demo |
-| `app.py` | Streamlit UI |
-| `Ecommerce_Consumer_Behavior_Analysis_Data.csv` | Input dataset |
-
----
-
-## How to run the analysis
-
-1. **Clone the repo** (or download the project folder).
-2. **Install dependencies**:
-   ```bash
-   pip install -r requirements.txt
-   ```
-3. **Generate all analysis images** (if `run_analysis.py` is present):
-   ```bash
-   python run_analysis.py
-   ```
-   This creates the `images/` folder and saves all plots used in this README.
-
----
 # E-commerce Consumer Behavior Analysis
 
 A data analysis project exploring **e-commerce consumer behavior** using a real-world dataset of customer demographics, purchase patterns, channels, and satisfaction metrics. The repo also includes an **AI Marketing Agent** that uses ML to predict purchase intent and generate personalized marketing emails.
@@ -296,4 +248,5 @@ Compares average purchase amount for loyalty program members vs non-members. Sup
 ## License
 
 This project is for educational and analytical use. Ensure you have the right to use and share the dataset according to its source terms.
+
 
