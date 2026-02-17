@@ -47,70 +47,6 @@ An intelligent agent that analyzes customer data, predicts **purchase intent** (
 We also implemented realtime AI agent which analyzes the data and gives the predictions accordingly 
 ![RealTime Agent](images/Realtime.png)
 ![Demo](images/Demo.png)
-
-
-
-# E-commerce Consumer Behavior Analysis
-
-A data analysis project exploring **e-commerce consumer behavior** using a real-world dataset of customer demographics, purchase patterns, channels, and satisfaction metrics. The repo also includes an **AI Marketing Agent** that uses ML to predict purchase intent and generate personalized marketing emails.
-
----
-
-## Project overview
-
-This repository contains:
-
-- **Dataset**: `Ecommerce_Consumer_Behavior_Analysis_Data.csv` — consumer behavior records with demographics, purchase details, and satisfaction indicators.
-- **Analysis script**: `run_analysis.py` — generates visualizations (requires Python 3.8+, pandas, matplotlib, seaborn).
-- **AI Marketing Agent**: ML-driven agent that predicts customer segment, chooses strategy from model confidence, and generates personalized emails (see below).
-- **Analysis images**: Stored in the `images/` folder and referenced in this README.
-
-### Dataset summary
-
-| Aspect | Description |
-|--------|--------------|
-| **Rows** | ~1,000 customer purchase records |
-| **Columns** | 28 (demographics, purchase, channel, satisfaction, etc.) |
-| **Use case** | Exploratory analysis, segmentation, reporting, and ML marketing agent |
-
-### Main variables
-
-- **Demographics**: Age, Gender, Income_Level, Marital_Status, Education_Level, Occupation, Location  
-- **Purchase**: Purchase_Category, Purchase_Amount, Frequency_of_Purchase, Purchase_Channel  
-- **Behavior**: Brand_Loyalty, Product_Rating, Time_Spent_on_Product_Research, Social_Media_Influence, Discount_Sensitivity  
-- **Outcomes**: Return_Rate, Customer_Satisfaction, Engagement_with_Ads  
-- **Context**: Device_Used_for_Shopping, Payment_Method, Time_of_Purchase, Discount_Used, Customer_Loyalty_Program_Member, Purchase_Intent, Shipping_Preference, Time_to_Decision  
-
----
-
-## AI Marketing Agent
-
-An intelligent agent that analyzes customer data, predicts **purchase intent** (Need-based, Wants-based, Impulsive, Planned) with a **GradientBoostingClassifier**, and generates personalized marketing emails. Strategy (Upsell / Nurture / Re-engagement) is decided from **prediction probability**, not rule-based segments.
-
-### Agent features
-
-- **Data processing**: Load CSV, clean `Purchase_Amount`, handle missing values, encode categoricals, scale numerics  
-- **ML model**: Predicts `Purchase_Intent`; train/test split and accuracy reported  
-- **MarketingAIAgent** methods: `preprocess_data()`, `train_model()`, `predict_customer_segment()`, `generate_email()`, `run_agent()`  
-- **Decision logic**: High probability → Upsell; Medium → Nurture; Low → Re-engagement  
-- **Email generation**: OpenAI API (or context-aware fallback if no API key)  
-- **Streamlit UI**: Manual input or sample customers (Loyal / At-risk / New), then run agent and view prediction, strategy, and email  
-
-### AI Marketing Agent – Streamlit UI
-
-**Input form** — Enter customer details manually or load a sample profile.
-
-![AI Marketing Agent – Input form](images/ai_marketing_agent_form.png)
-
-**Output** — Predicted intent, confidence, strategy, and generated email after clicking **Run AI Agent**.
-
-![AI Marketing Agent – Output](images/ai_marketing_agent_ui.png)
-
-*Manual input form and output: predicted intent, confidence, strategy, and generated email.*
-
-### How to run the AI Marketing Agent
-
-1. **Install dependencies**:
    
 
 ## Analyses and visualizations
@@ -248,6 +184,7 @@ Compares average purchase amount for loyalty program members vs non-members. Sup
 ## License
 
 This project is for educational and analytical use. Ensure you have the right to use and share the dataset according to its source terms.
+
 
 
 
