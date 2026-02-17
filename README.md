@@ -11,7 +11,7 @@ This repository contains:
 - **Dataset**: `Ecommerce_Consumer_Behavior_Analysis_Data.csv` — consumer behavior records with demographics, purchase details, and satisfaction indicators.
 - **Analysis script**: `run_analysis.py` — generates visualizations (requires Python 3.8+, pandas, matplotlib, seaborn).
 - **AI Marketing Agent**: ML-driven agent that predicts customer segment, chooses strategy from model confidence, and generates personalized emails (see below).
-- **Analysis images**: Stored in the `images/` folder and referenced in this README.
+- **Realtime Analysis agent**: Implemented realtime analysis AI using openai api,that predicts the strategy,confidence percentage.
 
 ### Dataset summary
 
@@ -248,6 +248,7 @@ Compares average purchase amount for loyalty program members vs non-members. Sup
 ## License
 
 This project is for educational and analytical use. Ensure you have the right to use and share the dataset according to its source terms.
+
 
 
 
