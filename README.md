@@ -45,7 +45,10 @@ An intelligent agent that analyzes customer data, predicts **purchase intent** (
 - **Streamlit UI**: Manual input or sample customers (Loyal / At-risk / New), then run agent and view prediction, strategy, and email  
 
 We also implemented realtime AI agent which analyzes the data and gives the predictions accordingly 
-(images/Screenshot(15).png)
+![RealTime Agent](images/Screenshot(14).png)
+![Demo](images/Screenshot(15).png)
+
+
 
 
 (images/Screenshot(14).png)
@@ -248,5 +251,6 @@ Compares average purchase amount for loyalty program members vs non-members. Sup
 ## License
 
 This project is for educational and analytical use. Ensure you have the right to use and share the dataset according to its source terms.
+
 
 
